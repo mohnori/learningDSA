@@ -24,6 +24,7 @@ You can expect decimal numbers as well as whole numbers.
     */
 
 /****************************************************************
+ * Solution steps :
     apply abs .
     apply log10() .
     apply Math.floor().

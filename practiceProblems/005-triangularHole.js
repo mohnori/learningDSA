@@ -23,16 +23,13 @@ Test.assertEquals(doesTriangleFit([3, 6, 8], [1, 10, 8]), false, "impossible hol
 */
 function doesTriangleFit(tri, hole) {
   const isTriangle = (tr) => {
-    if (tr.length !== 3) {
-      return false;
-    }
-    if (
-      tri[0] + tri[1] > tri[2] &&
+    if (tr.length !== 3) return false;
+
+    return tri[0] + tri[1] > tri[2] &&
       tri[0] + tri[2] > tri[1] &&
       tri[1] + tri[2] > tri[0]
-    ) {
-      return true;
-    } else return false;
+      ? true
+      : false;
   };
 
   const triArea = (tri) => {
@@ -43,10 +40,7 @@ function doesTriangleFit(tri, hole) {
   };
 
   if (isTriangle(tri) && isTriangle(hole)) {
-    if (triArea(hole) >= triArea(tri)) {
-      return true;
-    } else return false;
+    return triArea(hole) >= triArea(tri) ? true : false;
   } else return false;
 }
-
-console.log(doesTriangleFit([3, 6, 8], [1, 10, 8]));
+exports.doesTriangleFit = doesTriangleFit;

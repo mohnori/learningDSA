@@ -51,10 +51,9 @@ function sum2(a, b) {
     } else num2 = b[j];
 
     tempSum = parseInt(num1) + parseInt(num2) + parseInt(hold);
-    //  console.log(tempSum);
+
     if (tempSum > 9) {
       result.unshift(tempSum.toString()[1]);
-      // console.log(result);
       hold = tempSum.toString()[0];
     } else {
       result.unshift(tempSum.toString());

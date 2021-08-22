@@ -1,6 +1,7 @@
 const { sum2 } = require("./007-sumOfTowNumbers");
 test("should ", () => {
   expect(sum2("123", "123")).toBe("246");
+  expect(sum2("1234", "123")).toBe("1357");
 });
 test("should ", () => {
   expect(sum2("1521512512512512515", "898989898989988998899898")).toBe(

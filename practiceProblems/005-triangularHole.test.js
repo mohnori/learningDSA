@@ -7,4 +7,5 @@ test("Triangle hole", () => {
   expect(doesTriangleFit([12, 63, 42], [1, 6, 8])).toBe(false);
   expect(doesTriangleFit([3, 6, 8], [23, 63, 42])).toBe(true);
   expect(doesTriangleFit([3, 6, 8], [1, 10, 8])).toBe(false);
+  expect(doesTriangleFit([3, 6, 8], [1, 10])).toBe(false);
 });

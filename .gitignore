@@ -1,2 +1,4 @@
 practiceProblems/node_modules
 practiceProblems/coverage/
+node_modules
+.vscode

@@ -41,9 +41,30 @@ Feel free to check out the Resources tab for a refresher on classes.
 class Smoothie {
   constructor(arr) {
     this.ingredients = [...arr];
-    //  super();
+    this.ingredientPriceList = {
+      Strawberries: 1.5,
+      Banana: 0.5,
+      Mango: 2.5,
+      Blueberries: 1.0,
+      Raspberries: 1.0,
+      Apple: 1.75,
+      Pineapple: 3.5,
+    };
+  }
+
+  getCost() {
+    //getCost method which calculates the total cost of the ingredients used to make the smoothie.
+    return 11;
+  }
+  getPrice() {
+    //getPrice method which returns the number from getCost plus the number from getCost multiplied by 1.5. Round to two decimal places.
+  }
+
+  getName() {
+    //getName method which gets the ingredients and puts them in alphabetical order into a nice descriptive sentence. If there are multiple ingredients, add the word "Fusion" to the end but otherwise, add "Smoothie". Remember to change "-berries" to "-berry". See the examples below.
   }
 }
-const s1 = new Smoothie(["Banana"]);
-console.log(s1.ingredients);
+
+// const s1 = new Smoothie(["Banana"]);
+// console.log(s1.ingredientPriceList.Banana);
 module.exports = Smoothie;

@@ -46,6 +46,4 @@ class Smoothie {
 }
 const s1 = new Smoothie(["Banana"]);
 console.log(s1.ingredients);
-
-exports.Smoothie = Smoothie;
-// export default Smoothie;
+module.exports = Smoothie;

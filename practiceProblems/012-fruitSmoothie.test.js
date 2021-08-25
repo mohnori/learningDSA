@@ -33,8 +33,55 @@ const { test, expect, it } = require("@jest/globals");
 
 const Smoothie = require("./012-fruitSmoothie");
 
-it("We can check if the consumer called the class constructor", () => {
+it("Check one item construture", () => {
   const s1 = new Smoothie(["Banana"]);
   expect(s1.ingredients).toEqual(["Banana"]);
-  expect(s1.getCost()).toBe(11);
+  expect(s1.getCost()).toBe("$0.50");
+  expect(s1.getPrice()).toBe("$1.25");
+  expect(s1.getName()).toBe("Banana Smoothie");
+});
+
+it("Check multi items construture", () => {
+  const s2 = new Smoothie(["Raspberries", "Strawberries", "Blueberries"]);
+  expect(s2.ingredients).toEqual([
+    "Raspberries",
+    "Strawberries",
+    "Blueberries",
+  ]);
+  expect(s2.getCost()).toBe("$3.50");
+  expect(s2.getPrice()).toBe("$8.75");
+  expect(s2.getName()).toBe("Blueberry Raspberry Strawberry Fusion");
+});
+it("s3 oject test", () => {
+  const s3 = new Smoothie(["Mango", "Apple", "Pineapple"]);
+  expect(s3.ingredients).toEqual(["Mango", "Apple", "Pineapple"]);
+  expect(s3.getCost()).toBe("$7.75");
+  expect(s3.getPrice()).toBe("$19.38");
+  expect(s3.getName()).toBe("Apple Mango Pineapple Fusion");
+});
+
+it("s4 oject test", () => {
+  const s4 = new Smoothie([
+    "Pineapple",
+    "Strawberries",
+    "Blueberries",
+    "Mango",
+  ]);
+  expect(s4.ingredients).toEqual([
+    "Pineapple",
+    "Strawberries",
+    "Blueberries",
+    "Mango",
+  ]);
+  expect(s4.getCost()).toBe("$8.50");
+  expect(s4.getPrice()).toBe("$21.25");
+  expect(s4.getName()).toBe("Blueberry Mango Pineapple Strawberry Fusion");
+});
+
+it("s5 oject test", () => {
+  const s5 = new Smoothie(["Blueberries"]);
+  expect(s5.ingredients).toEqual(["Blueberries"]);
+  expect(s5.getCost()).toBe("$1.00");
+  expect(s5.getPrice()).toBe("$2.50");
+  expect(s5.getName()).toBe("Blueberry Smoothie");
 });

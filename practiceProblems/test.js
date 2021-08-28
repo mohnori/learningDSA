@@ -54,14 +54,21 @@ function steadyGene(gene) {
 
   if (subSequence.length === 0) return 0;
 
+  let i = 0,
+    j = 0,
+    windowObj = createGeneCountObj(gene[j]);
+  for (j = 1; j < searchWindow; j++) {
+    windowObj = editGeneObj(windowObj, gene[j], 1);
+  }
+  j--;
+
   while (searchWindow < gene.length) {
-    let i = 0,
-      j = 0,
-      windowObj = createGeneCountObj(gene[j]);
-    for (j = 1; j < searchWindow; j++) {
-      windowObj = editGeneObj(windowObj, gene[j], 1);
+    if (
+      windowObj.A + windowObj.c + windowObj.g + windowObj.T !==
+      subSequence.length
+    ) {
+      windowObj = editGeneObj(windowObj, gene[j - 1], 1);
     }
-    j--;
     while (j < gene.length) {
       if (match(subSequenceObj, windowObj)) {
         return searchWindow;

@@ -132,7 +132,6 @@ class SinglyLinkedList {
       prev = current;
       current = next;
     }
-    // this.tail.next = null;
   }
 }
 

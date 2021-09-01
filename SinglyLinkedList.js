@@ -87,21 +87,40 @@ class SinglyLinkedList {
     }
     return false;
   }
-  insert(idx, val) {}
-  remove(idx) {}
+  insert(idx, val) {
+    let newNode = new Node(val);
+    newNode.next = this.head;
+    if ((idx < 0) | (idx > this.length) | isNaN(idx)) return false;
+    if (idx === 0) {
+      this.unSift(val);
+    } else if (this.head == null) {
+      this.push(val);
+    } else if (idx === this.length) {
+      this.push(val);
+    } else {
+      let temp = this.get(idx - 1);
+      newNode.next = temp.next;
+      temp.next = newNode;
+      this.length++;
+    }
+    return newNode;
+  }
+  remove(idx) {
+    if ((idx < 0) | (idx >= this.length) | isNaN(idx)) return false;
+    if (idx === 0) {
+      this.shift();
+    } else if (idx === this.length - 1) {
+      this.pup();
+    } else {
+      let temp = this.get(idx - 1);
+      let result = temp.next;
+      temp.next = temp.next.next;
+      this.length--;
+      return result;
+    }
+  }
   reverse() {}
 }
-
-// var start = new Date()
-// var simulateTime = 1000
-
-// setTimeout(
-// function addItems(i) {
-//   const list = new SinglyLinkedList();
-//   for (i = 1; i < 100001; i++) list.push(i);
-// }
-
-// addItems(1000000000);
 
 const list = new SinglyLinkedList();
 // console.log("Add null to the list " + list.pup());
@@ -146,38 +165,66 @@ const list = new SinglyLinkedList();
 // console.log(list.pup());
 // console.log(util.inspect(list, false, null, true /* enable colors */));
 
-console.log(
-  util.inspect(list.unSift(33), false, null, true /* enable colors */)
-);
-console.log(util.inspect(list, false, null, true /* enable colors */));
-console.log(
-  util.inspect(list.unSift(44), false, null, true /* enable colors */)
-);
-console.log(util.inspect(list, false, null, true /* enable colors */));
-console.log(util.inspect(list.unSift(), false, null, true /* enable colors */));
+// console.log(
+//   util.inspect(list.unSift(33), false, null, true /* enable colors */)
+// );
+// console.log(util.inspect(list, false, null, true /* enable colors */));
+// console.log(
+//   util.inspect(list.unSift(44), false, null, true /* enable colors */)
+// );
+// console.log(util.inspect(list, false, null, true /* enable colors */));
+// console.log(util.inspect(list.unSift(), false, null, true /* enable colors */));
+// console.log(util.inspect(list, false, null, true /* enable colors */));
+
+// console.log(
+//   util.inspect(list.unSift("Mohammed"), false, null, true /* enable colors */)
+// );
+// console.log(
+//   util.inspect(list.unSift("Do Do Do"), false, null, true /* enable colors */)
+// );
+// console.log(util.inspect(list, false, null, true /* enable colors */));
+// console.log(list.get(-1));
+
+// console.log(list.get("yt"));
+// console.log(list.get("@"));
+// //console.log(list.get(3));
+
+// //console.log(list.get(1));
+// //console.log(list.get(0));
+// console.log("-----------------Set -----------------");
+// console.log(list.set(0, 1));
+// console.log(list.set(1, 2));
+// console.log(list.set(2, 3));
+// console.log(list.set(3, 4));
+// console.log(list.set(5, 4));
+// console.log(list.set("dfd", 4));
+// console.log(list.set(-1, 4));
+// console.log(util.inspect(list, false, null, true /* enable colors */));
+list.push(1);
+list.push(2);
+list.push(3);
+list.push(4);
+list.push(5);
+//list.insert(3, 6);
+
 console.log(util.inspect(list, false, null, true /* enable colors */));
 
-console.log(
-  util.inspect(list.unSift("Mohammed"), false, null, true /* enable colors */)
-);
-console.log(
-  util.inspect(list.unSift("Do Do Do"), false, null, true /* enable colors */)
-);
-console.log(util.inspect(list, false, null, true /* enable colors */));
-console.log(list.get(-1));
+// console.log("-------------------Get begin-----------------");
+// console.log(list.get(2));
+// console.log("--------------------get end-------------------");
+// list.insert(4, 7);
+// //console.log(util.inspect(list, false, null, true /* enable colors */));
+// list.insert(7, 8);
+// //
+// console.log(list.insert(0, 9));
+// console.log(util.inspect(list, false, null, true /* enable colors */));
+console.log("-----------------------------------------------");
+// console.log(list.insert(1, 1111));
+// console.log(util.inspect(list, false, null, true /* enable colors */));
 
-console.log(list.get("yt"));
-console.log(list.get("@"));
-//console.log(list.get(3));
-console.log(list.get(2));
-//console.log(list.get(1));
-//console.log(list.get(0));
-console.log("-----------------Set -----------------");
-console.log(list.set(0, 1));
-console.log(list.set(1, 2));
-console.log(list.set(2, 3));
-console.log(list.set(3, 4));
-console.log(list.set(5, 4));
-console.log(list.set("dfd", 4));
-console.log(list.set(-1, 4));
+//console.log(util.inspect(list.get(1), false, null, true /* enable colors */));
+list.remove(3);
+console.log("-----------------------------------------------");
 console.log(util.inspect(list, false, null, true /* enable colors */));
+console.log(JSON.stringify(list));
+console.table(list);

@@ -119,7 +119,20 @@ class SinglyLinkedList {
       return result;
     }
   }
-  reverse() {}
+  reverse() {
+    let current = this.head;
+    this.tail = current;
+    this.head = this.tail;
+
+    let next = null,
+      prev = null;
+    while (current) {
+      prev = current;
+      current = current.next;
+      next = current.next;
+      prev.next = current;
+    }
+  }
 }
 
 const list = new SinglyLinkedList();
@@ -228,3 +241,23 @@ console.log("-----------------------------------------------");
 console.log(util.inspect(list, false, null, true /* enable colors */));
 console.log(JSON.stringify(list));
 console.table(list);
+
+list.reverse();
+console.log(util.inspect(list, false, null, true /* enable colors */));
+
+/*
+Head             Tail
+  12  34  67  43  32
+
+  temp
+   32
+  Head            Tail
+                   12
+  Head            Tail
+   32              12
+
+
+   
+
+
+*/

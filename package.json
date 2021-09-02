@@ -1,0 +1,25 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "DublyLinkedList.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohnori/learningDSA.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohnori/learningDSA/issues"
+  },
+  "homepage": "https://github.com/mohnori/learningDSA#readme",
+  "devDependencies": {
+    "jest": "^27.1.0"
+  },
+  "dependencies": {
+    "flatted": "^3.2.2"
+  }
+}

@@ -8,3 +8,4 @@ let h1 = [1, 2, 3, 4, 5], // => 9
 h4 = [5, 11, 6, 13, 6, 3, 24, 7];
 
 console.log(largestRectangle(h1));
+// Data
